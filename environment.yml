@@ -1,0 +1,45 @@
+# The "bioinfo" conda environment baked into the codespace image.
+# After editing this file, rebuild the container:
+#   Command Palette (Ctrl/Cmd+Shift+P) > "Codespaces: Rebuild Container"
+name: bioinfo
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+
+  # Workflow managers and testing
+  - nextflow
+  - nf-core
+  - nf-test
+  - snakemake-minimal
+
+  # Read QC and trimming
+  - fastqc
+  - fastp
+  - multiqc
+  - seqkit
+
+  # Alignment and quantification
+  - bwa
+  - minimap2
+  - salmon
+
+  # BAM, VCF and interval handling
+  - samtools
+  - bcftools
+  - htslib
+  - bedtools
+
+  # Python data analysis
+  - pandas
+  - biopython
+  - matplotlib
+  - seaborn
+  - ipykernel
+
+  # Optional: R and Bioconductor. Uncomment to add (makes the image much larger
+  # and the first build slower).
+  # - r-base
+  # - r-tidyverse
+  # - bioconductor-deseq2

@@ -1,0 +1,20 @@
+nextflow_pipeline {
+
+    name "Mini variant calling pipeline"
+    script "main.nf"
+
+    test("Runs end to end on the mock data") {
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert path("$outputDir/variants/cohort.vcf.gz").exists()
+            assert path("$outputDir/multiqc/multiqc_report.html").exists()
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Bioinformatics Teaching Lab",
+
+  // Builds the image from the Dockerfile in this folder.
+  // For faster startups, see "Faster startups" in the README to swap this
+  // "build" block for a prebuilt "image" line.
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb"
+  },
+
+  "remoteUser": "vscode",
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  "portsAttributes": {
+    "8000": { "label": "Reports" }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "nextflow.nextflow",
+        "snakemake.snakemake-lang",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "mechatroner.rainbow-csv",
+        "redhat.vscode-yaml",
+        "ms-vscode.live-server"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/conda/envs/bioinfo/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  }
+}
