@@ -14,22 +14,6 @@
 // Processes: each one is a single step with its own inputs and outputs
 // ---------------------------------------------------------------------------
 
-process FASTQC {
-    tag "${sample}"
-    publishDir "${params.outdir}/fastqc", mode: 'copy'
-
-    input:
-    tuple val(sample), path(r1), path(r2)
-
-    output:
-    path "*_fastqc.{zip,html}", emit: reports
-
-    script:
-    """
-    fastqc --threads ${task.cpus} --quiet ${r1} ${r2}
-    echo "Big Chungus is watching you"
-    """
-}
 
 process FASTP {
     tag "${sample}"
