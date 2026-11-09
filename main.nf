@@ -27,6 +27,7 @@ process FASTQC {
     script:
     """
     fastqc --threads ${task.cpus} --quiet ${r1} ${r2}
+    echo "fastqc is Done!!"
     """
 }
 
