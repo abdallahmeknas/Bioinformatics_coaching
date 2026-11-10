@@ -40,6 +40,6 @@ dependencies:
 
   # Optional: R and Bioconductor. Uncomment to add (makes the image much larger
   # and the first build slower).
-  # - r-base
+  - r-base
   # - r-tidyverse
   # - bioconductor-deseq2
